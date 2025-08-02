@@ -47,7 +47,7 @@ header {
 }
 
 .logo {
-  width: 260px; /* aumentado de 200px */
+  width: 300px; /* aumentado de 200px */
   height: auto;
   margin-bottom: 10px;
   transition: transform 0.3s ease;
@@ -142,3 +142,4 @@ footer {
   position: relative;
   z-index: 1;
 }
+
