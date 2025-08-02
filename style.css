@@ -129,50 +129,51 @@ button:hover {
   box-shadow: 0 2px 5px rgba(0,0,0,0.15);
 }
 
-/* Ruleta estilo slot horizontal */
-#ruleta {
+/* ====== SLOT MACHINE ESTILO RUEDA VERTICAL ====== */
+#slotContainer {
   margin-top: 20px;
   position: relative;
   width: 100%;
-  height: 120px;
+  height: 160px;
   overflow: hidden;
   border: 3px dashed #ffbaba;
   border-radius: 20px;
   background-color: #fff0f5;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
-  padding: 0 10px;
-  scroll-behavior: smooth;
+  justify-content: center;
 }
 
-.ruleta-item {
-  padding: 10px;
-  margin: 0 10px;
+#slotMachine {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation-timing-function: ease-out;
+}
+
+.slot-item {
+  padding: 15px 25px;
+  margin: 10px 0;
   border-radius: 10px;
   background: #ffd6e8;
-  min-width: 100px;
   font-weight: bold;
+  font-size: 1.2em;
+  min-width: 150px;
+  text-align: center;
   user-select: none;
-  transition: all 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
 }
 
+/* Resultado final */
 #ganador {
-  font-size: 1.4em;
+  font-size: 1.6em;
   color: #008000;
   margin-top: 20px;
   font-weight: bold;
 }
 
-footer {
-  margin-top: 40px;
-  font-size: 0.9em;
-  color: #aaa;
-  position: relative;
-  z-index: 1;
-}
-
-/* ================= RESPONSIVE: Ajustes para móvil ================= */
+/* ========== RESPONSIVE ========= */
 @media (max-width: 768px) {
   .logo {
     width: 200px;
@@ -182,8 +183,9 @@ footer {
     width: 30px !important;
   }
 
-  .ruleta-item {
-    min-width: 80px;
-    font-size: 0.9em;
+  .slot-item {
+    font-size: 1em;
+    min-width: 120px;
   }
 }
+
