@@ -109,8 +109,11 @@ function finalizarSorteo(indiceGanador) {
 // ======== Agregar evento al botón iniciar ========
 iniciarBtn.addEventListener('click', iniciarSorteo);
 
-// ======== Animación de fondo kawaii ========
+// ======== Animación de fondo kawaii mejorada ========
 function crearFondoKawaii() {
+  // Limpiar el fondo por si acaso
+  fondoKawaii.innerHTML = '';
+  
   for (let i = 1; i <= 54; i++) {
     const img = document.createElement('img');
     img.src = `assets/kawaii${i}.png`;
@@ -120,6 +123,8 @@ function crearFondoKawaii() {
     img.style.width = `${40 + Math.random() * 40}px`;
     img.style.animationDuration = `${15 + Math.random() * 15}s`;
     img.style.animationDelay = `${Math.random() * 10}s`;
+    img.style.opacity = `${0.5 + Math.random() * 0.5}`;
+    img.style.zIndex = '-1';
     fondoKawaii.appendChild(img);
   }
 }
