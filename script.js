@@ -1,4 +1,4 @@
-// ======== Variables y referencias a elementos DOM ========
+// ======== Variables y referencias a elementos DOM ======== 
 const nombreInput = document.getElementById('nombreInput');
 const agregarBtn = document.getElementById('agregarBtn');
 const listaNombres = document.getElementById('listaNombres');
@@ -12,13 +12,14 @@ let ruletaInterval;
 let indiceActual = 0;
 let girando = false;
 
-// ======== Función para mostrar lista actualizada ========
+// ======== Mostrar nombres como etiquetas horizontales ========
 function mostrarLista() {
   listaNombres.innerHTML = '';
-  participantes.forEach((nombre, i) => {
-    const li = document.createElement('li');
-    li.textContent = `${i + 1}. ${nombre}`;
-    listaNombres.appendChild(li);
+  participantes.forEach((nombre) => {
+    const span = document.createElement('span');
+    span.className = 'etiqueta-nombre';
+    span.textContent = nombre;
+    listaNombres.appendChild(span);
   });
 }
 
@@ -29,7 +30,6 @@ agregarBtn.addEventListener('click', () => {
     alert('Por favor, escribe al menos un nombre válido.');
     return;
   }
-  // Dividir por líneas, limpiar espacios y filtrar vacíos
   const nombres = texto
     .split('\n')
     .map(linea => linea.trim())
@@ -45,7 +45,7 @@ agregarBtn.addEventListener('click', () => {
 // ======== Mostrar en la ruleta los participantes (textos) ========
 function actualizarRuletaVisual() {
   ruleta.innerHTML = '';
-  participantes.forEach((nombre, i) => {
+  participantes.forEach((nombre) => {
     const div = document.createElement('div');
     div.textContent = nombre;
     div.className = 'ruleta-item';
@@ -115,7 +115,6 @@ function finalizarSorteo(indiceGanador) {
 iniciarBtn.addEventListener('click', iniciarSorteo);
 
 // ======== Animación de fondo kawaii mejorada ========
-// Lista de imágenes reales existentes: kawaii10.png hasta kawaii54.png (45 imágenes)
 const imagenesValidas = [];
 for(let n = 10; n <= 54; n++) {
   imagenesValidas.push(n);
@@ -125,7 +124,7 @@ function crearFondoKawaii() {
   fondoKawaii.innerHTML = '';
   const columnas = 10;
   const filas = 8;
-  const total = columnas * filas; // 80 imágenes
+  const total = columnas * filas;
 
   for (let i = 0; i < total; i++) {
     const img = document.createElement('img');
@@ -133,16 +132,13 @@ function crearFondoKawaii() {
     img.src = `assets/kawaii${numImg}.png`;
     img.className = 'kawaii-img';
 
-    // Calcular posición en la rejilla
     const fila = Math.floor(i / columnas);
     const columna = i % columnas;
 
-    // Distribución base en vw y vh
-    let leftBase = (columna + 0.5) * (100 / columnas); // centro de la columna
-    let topBase = (fila + 0.5) * (100 / filas); // centro de la fila
+    let leftBase = (columna + 0.5) * (100 / columnas);
+    let topBase = (fila + 0.5) * (100 / filas);
 
-    // Añadir un pequeño desplazamiento aleatorio para que no se vean perfectas
-    const offsetX = (Math.random() - 0.5) * (100 / columnas) * 0.4; // +/- 40% del tamaño de celda
+    const offsetX = (Math.random() - 0.5) * (100 / columnas) * 0.4;
     const offsetY = (Math.random() - 0.5) * (100 / filas) * 0.4;
 
     img.style.left = `${leftBase + offsetX}vw`;
