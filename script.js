@@ -60,7 +60,7 @@ function actualizarRuletaVisual() {
   });
 }
 
-// ======== Función para girar la ruleta ========
+// ======== Función para girar la ruleta tipo slot ========
 function iniciarSorteo() {
   if (girando) return;
   if (participantes.length === 0) {
