@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sorteos Tragoncitos MX</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <img src="logo.png" alt="Tragoncitos MX" class="logo" />
+    <h1>Sorteo Tragoncitos MX</h1>
+  </header>
+
+  <main>
+    <section class="entrada">
+      <h2>Ingresa los participantes</h2>
+      <input type="text" id="nombreInput" placeholder="Escribe un nombre" />
+      <button id="agregarBtn">Ingresar nombre</button>
+      <ul id="listaNombres"></ul>
+    </section>
+
+    <section class="sorteo">
+      <h2>¡Hora del sorteo!</h2>
+      <button id="iniciarBtn">Iniciar Ruleta</button>
+      <div id="ruleta">
+        <!-- Aquí girarán los nombres -->
+      </div>
+      <div id="ganador"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Tragoncitos MX</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
