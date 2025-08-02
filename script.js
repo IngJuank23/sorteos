@@ -111,17 +111,37 @@ iniciarBtn.addEventListener('click', iniciarSorteo);
 // ======== Animación de fondo kawaii mejorada ========
 function crearFondoKawaii() {
   fondoKawaii.innerHTML = '';
-  for (let i = 1; i <= 80; i++) {
+  const columnas = 10;
+  const filas = 8;
+  const total = columnas * filas; // 80 imágenes
+  const totalImagenes = 45; // cantidad real de imágenes existentes (54 - 9 borradas)
+
+  for (let i = 0; i < total; i++) {
     const img = document.createElement('img');
-    img.src = `assets/kawaii${(i % 54) + 1}.png`; // Evita error si hay menos de 80 imágenes
+    img.src = `assets/kawaii${(i % totalImagenes) + 1}.png`;
     img.className = 'kawaii-img';
-    img.style.top = `${Math.random() * 100}vh`;
-    img.style.left = `${Math.random() * 100}vw`;
+
+    // Calcular posición en la rejilla
+    const fila = Math.floor(i / columnas);
+    const columna = i % columnas;
+
+    // Distribución base en vw y vh
+    let leftBase = (columna + 0.5) * (100 / columnas); // centro de la columna
+    let topBase = (fila + 0.5) * (100 / filas); // centro de la fila
+
+    // Añadir un pequeño desplazamiento aleatorio para que no se vean perfectas
+    const offsetX = (Math.random() - 0.5) * (100 / columnas) * 0.4; // +/- 40% del tamaño de celda
+    const offsetY = (Math.random() - 0.5) * (100 / filas) * 0.4;
+
+    img.style.left = `${leftBase + offsetX}vw`;
+    img.style.top = `${topBase + offsetY}vh`;
+
     img.style.width = `${40 + Math.random() * 40}px`;
     img.style.animationDuration = `${15 + Math.random() * 15}s`;
     img.style.animationDelay = `${Math.random() * 10}s`;
     img.style.opacity = `${0.7 + Math.random() * 0.3}`;
     img.style.zIndex = '-1';
+
     fondoKawaii.appendChild(img);
   }
 }
