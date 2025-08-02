@@ -143,3 +143,13 @@ footer {
   z-index: 1;
 }
 
+/* ================= RESPONSIVE: Ajustes para móvil ================= */
+@media (max-width: 768px) {
+  .logo {
+    width: 200px;
+  }
+
+  .kawaii-img {
+    width: 30px !important;
+  }
+}
