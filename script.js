@@ -24,12 +24,18 @@ function mostrarLista() {
 
 // ======== Agregar participante ========
 agregarBtn.addEventListener('click', () => {
-  const nombre = nombreInput.value.trim();
-  if (nombre === '') {
-    alert('Por favor, escribe un nombre válido.');
+  const texto = nombreInput.value.trim();
+  if (texto === '') {
+    alert('Por favor, escribe al menos un nombre válido.');
     return;
   }
-  participantes.push(nombre);
+  // Dividir por líneas, limpiar espacios y filtrar vacíos
+  const nombres = texto
+    .split('\n')
+    .map(linea => linea.trim())
+    .filter(linea => linea.length > 0);
+
+  participantes.push(...nombres);
   mostrarLista();
   nombreInput.value = '';
   ganadorDiv.textContent = '';
