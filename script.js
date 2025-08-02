@@ -99,13 +99,8 @@ function marcarParticipanteActual(indice) {
     item.classList.toggle('active', i === indice);
   });
 
-  // Scroll vertical suave para centrar el participante activo
   const itemActual = items[indice];
   if (itemActual) {
-    const ruletaRect = ruleta.getBoundingClientRect();
-    const itemRect = itemActual.getBoundingClientRect();
-
-    // Calculamos el scroll para centrar verticalmente el elemento activo
     const offset = itemActual.offsetTop - (ruleta.clientHeight / 2) + (itemActual.clientHeight / 2);
     ruleta.scrollTo({
       top: offset,
@@ -114,7 +109,7 @@ function marcarParticipanteActual(indice) {
   }
 }
 
-// ======== Finalizar sorteo mostrando ganador ========
+// ======== Finalizar sorteo mostrando ganador (actualizado con nueva regla) ========
 function finalizarSorteo(indiceGanador) {
   const ganador = participantes[indiceGanador];
   ganadorDiv.textContent = `¡El ganador es: ${ganador}! 🎉`;
@@ -124,12 +119,11 @@ function finalizarSorteo(indiceGanador) {
   li.textContent = ganador;
   listaGanadores.appendChild(li);
 
-  // Eliminar ganador del array y actualizar visuales
-  participantes.splice(indiceGanador, 1);
+  // Eliminar todas las apariciones del ganador
+  participantes = participantes.filter(nombre => nombre !== ganador);
+
   mostrarLista();
   actualizarRuletaVisual();
-
-  // Reiniciar índice para no fallar en próxima ronda
   indiceActual = 0;
 }
 
@@ -190,5 +184,3 @@ function crearFondoKawaii() {
 }
 
 window.addEventListener('load', crearFondoKawaii);
-
-
