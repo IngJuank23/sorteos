@@ -56,23 +56,22 @@ function actualizarRuletaVisual() {
 
 // ======== Función para girar la ruleta ========
 function iniciarSorteo() {
-  if (girando) return; // Evitar múltiples clicks
+  if (girando) return;
   if (participantes.length === 0) {
     alert('Agrega al menos un participante para iniciar el sorteo.');
     return;
   }
   girando = true;
   ganadorDiv.textContent = '';
-  let velocidad = 100; // ms entre cambios
+  let velocidad = 100;
   let vueltas = 0;
-  const maxVueltas = 30 + Math.floor(Math.random() * 30); // Aleatorio entre 30 y 60 vueltas
+  const maxVueltas = 30 + Math.floor(Math.random() * 30);
 
   ruletaInterval = setInterval(() => {
     indiceActual = (indiceActual + 1) % participantes.length;
     marcarParticipanteActual(indiceActual);
     vueltas++;
 
-    // Desacelerar progresivamente
     if (vueltas > maxVueltas * 0.7) {
       velocidad += 15;
       clearInterval(ruletaInterval);
@@ -111,23 +110,20 @@ iniciarBtn.addEventListener('click', iniciarSorteo);
 
 // ======== Animación de fondo kawaii mejorada ========
 function crearFondoKawaii() {
-  // Limpiar el fondo por si acaso
   fondoKawaii.innerHTML = '';
-  
-  for (let i = 1; i <= 54; i++) {
+  for (let i = 1; i <= 80; i++) {
     const img = document.createElement('img');
-    img.src = `assets/kawaii${i}.png`;
+    img.src = `assets/kawaii${(i % 54) + 1}.png`; // Evita error si hay menos de 80 imágenes
     img.className = 'kawaii-img';
     img.style.top = `${Math.random() * 100}vh`;
     img.style.left = `${Math.random() * 100}vw`;
     img.style.width = `${40 + Math.random() * 40}px`;
     img.style.animationDuration = `${15 + Math.random() * 15}s`;
     img.style.animationDelay = `${Math.random() * 10}s`;
-    img.style.opacity = `${0.5 + Math.random() * 0.5}`;
+    img.style.opacity = `${0.7 + Math.random() * 0.3}`;
     img.style.zIndex = '-1';
     fondoKawaii.appendChild(img);
   }
 }
 
-// Iniciar animación kawaii al cargar la página
 window.addEventListener('load', crearFondoKawaii);
