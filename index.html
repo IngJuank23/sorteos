@@ -19,7 +19,10 @@
       <h2>Ingresa los participantes</h2>
       <textarea id="nombreInput" rows="6" placeholder="Pega aquí los nombres, uno por línea"></textarea>
       <button id="agregarBtn">Ingresar nombre(s)</button>
-      
+      <button id="reiniciarBtn" class="btn-reiniciar">Reiniciar Sorteo</button>
+
+      <p id="contadorParticipantes">Participantes ingresados: 0</p>
+
       <!-- Contenedor horizontal con estilo para los nombres -->
       <div class="nombres-container" id="listaNombres"></div>
     </section>
@@ -27,13 +30,11 @@
     <section class="sorteo">
       <h2>¡Hora del sorteo!</h2>
       <button id="iniciarBtn">Iniciar Ruleta</button>
-      
-      <!-- Nueva ruleta estilo slot machine -->
-      <div id="slotContainer">
-        <div id="slotMachine"></div>
-      </div>
-      
+      <div id="ruleta"></div>
       <div id="ganador"></div>
+
+      <h3>Ganadores:</h3>
+      <ul id="listaGanadores" class="lista-ganadores"></ul>
     </section>
   </main>
 
@@ -45,3 +46,4 @@
   <script src="script.js"></script>
 </body>
 </html>
+
