@@ -3,15 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sorteos Tragoncitos MX</title>
+  <title>Sorteo Tragoncitos MX</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- Fondo animado de comida kawaii -->
-  <div class="background-container" aria-hidden="true">
-    <!-- 54 imágenes kawaii flotantes -->
-    <!-- Se generarán dinámicamente desde JS -->
-  </div>
+  <!-- Fondo animado kawaii -->
+  <div id="fondoKawaii"></div>
 
   <header>
     <img src="assets/logo.png" alt="Tragoncitos MX" class="logo" />
@@ -29,15 +26,13 @@
     <section class="sorteo">
       <h2>¡Hora del sorteo!</h2>
       <button id="iniciarBtn">Iniciar Ruleta</button>
-      <div id="ruleta">
-        <!-- Aquí girarán los nombres -->
-      </div>
+      <div id="ruleta"></div>
       <div id="ganador"></div>
     </section>
   </main>
 
   <footer>
-    <p>&copy; 2025 Developed by JuanPariona</p>
+    <p>&copy; 2025 Tragoncitos MX</p>
   </footer>
 
   <script src="script.js"></script>
