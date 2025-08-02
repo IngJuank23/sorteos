@@ -107,6 +107,16 @@ button:hover {
   background-color: #e85a4f;
 }
 
+/* Botón reiniciar con un color distinto */
+.btn-reiniciar {
+  background-color: #888;
+  margin-left: 20px;
+}
+
+.btn-reiniciar:hover {
+  background-color: #555;
+}
+
 /* Nombres como etiquetas horizontales */
 .nombres-container {
   display: flex;
@@ -129,51 +139,73 @@ button:hover {
   box-shadow: 0 2px 5px rgba(0,0,0,0.15);
 }
 
-/* ====== SLOT MACHINE ESTILO RUEDA VERTICAL ====== */
-#slotContainer {
+/* Ruleta estilo slot horizontal */
+#ruleta {
   margin-top: 20px;
   position: relative;
   width: 100%;
-  height: 160px;
+  height: 120px;
   overflow: hidden;
   border: 3px dashed #ffbaba;
   border-radius: 20px;
   background-color: #fff0f5;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+  padding: 0 10px;
+  scroll-behavior: smooth;
 }
 
-#slotMachine {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  animation-timing-function: ease-out;
-}
-
-.slot-item {
-  padding: 15px 25px;
-  margin: 10px 0;
+.ruleta-item {
+  padding: 10px;
+  margin: 0 10px;
   border-radius: 10px;
   background: #ffd6e8;
+  min-width: 100px;
   font-weight: bold;
-  font-size: 1.2em;
-  min-width: 150px;
-  text-align: center;
   user-select: none;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  transition: transform 0.3s;
+  transition: all 0.3s ease;
 }
 
-/* Resultado final */
 #ganador {
-  font-size: 1.6em;
+  font-size: 1.4em;
   color: #008000;
   margin-top: 20px;
   font-weight: bold;
 }
 
-/* ========== RESPONSIVE ========= */
+.lista-ganadores {
+  margin-top: 10px;
+  list-style: none;
+  padding-left: 0;
+  max-height: 150px;
+  overflow-y: auto;
+  border: 1px solid #ffbaba;
+  border-radius: 10px;
+  background-color: #fff0f5;
+  box-shadow: inset 0 0 5px rgba(255, 111, 97, 0.4);
+}
+
+.lista-ganadores li {
+  padding: 6px 12px;
+  border-bottom: 1px solid #ffbaba;
+  font-weight: bold;
+  color: #ff6f61;
+}
+
+.lista-ganadores li:last-child {
+  border-bottom: none;
+}
+
+footer {
+  margin-top: 40px;
+  font-size: 0.9em;
+  color: #aaa;
+  position: relative;
+  z-index: 1;
+}
+
+/* ================= RESPONSIVE: Ajustes para móvil ================= */
 @media (max-width: 768px) {
   .logo {
     width: 200px;
@@ -183,9 +215,8 @@ button:hover {
     width: 30px !important;
   }
 
-  .slot-item {
-    font-size: 1em;
-    min-width: 120px;
+  .ruleta-item {
+    min-width: 80px;
+    font-size: 0.9em;
   }
 }
-
