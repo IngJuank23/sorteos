@@ -107,19 +107,19 @@ button:hover {
   background-color: #e85a4f;
 }
 
-ul#listaNombres {
-  list-style: none;
-  padding: 10px 0;
+/* Nombres como etiquetas horizontales */
+.nombres-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 8px;
+  gap: 10px;
+  margin-top: 10px;
   max-height: 140px;
   overflow-y: auto;
-  margin-top: 10px;
+  padding: 10px 0;
 }
 
-ul#listaNombres li {
+.etiqueta-nombre {
   background-color: #ff6f61;
   color: white;
   padding: 6px 12px;
@@ -129,11 +129,12 @@ ul#listaNombres li {
   box-shadow: 0 2px 5px rgba(0,0,0,0.15);
 }
 
+/* Ruleta estilo slot horizontal */
 #ruleta {
   margin-top: 20px;
   position: relative;
   width: 100%;
-  height: 300px;
+  height: 120px;
   overflow: hidden;
   border: 3px dashed #ffbaba;
   border-radius: 20px;
@@ -141,6 +142,19 @@ ul#listaNombres li {
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  padding: 0 10px;
+  scroll-behavior: smooth;
+}
+
+.ruleta-item {
+  padding: 10px;
+  margin: 0 10px;
+  border-radius: 10px;
+  background: #ffd6e8;
+  min-width: 100px;
+  font-weight: bold;
+  user-select: none;
+  transition: all 0.3s ease;
 }
 
 #ganador {
@@ -166,5 +180,10 @@ footer {
 
   .kawaii-img {
     width: 30px !important;
+  }
+
+  .ruleta-item {
+    min-width: 80px;
+    font-size: 0.9em;
   }
 }
