@@ -109,16 +109,22 @@ function finalizarSorteo(indiceGanador) {
 iniciarBtn.addEventListener('click', iniciarSorteo);
 
 // ======== Animación de fondo kawaii mejorada ========
+// Lista de imágenes reales existentes: kawaii10.png hasta kawaii54.png (45 imágenes)
+const imagenesValidas = [];
+for(let n = 10; n <= 54; n++) {
+  imagenesValidas.push(n);
+}
+
 function crearFondoKawaii() {
   fondoKawaii.innerHTML = '';
   const columnas = 10;
   const filas = 8;
   const total = columnas * filas; // 80 imágenes
-  const totalImagenes = 45; // cantidad real de imágenes existentes (54 - 9 borradas)
 
   for (let i = 0; i < total; i++) {
     const img = document.createElement('img');
-    img.src = `assets/kawaii${(i % totalImagenes) + 1}.png`;
+    const numImg = imagenesValidas[i % imagenesValidas.length];
+    img.src = `assets/kawaii${numImg}.png`;
     img.className = 'kawaii-img';
 
     // Calcular posición en la rejilla
