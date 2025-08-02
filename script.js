@@ -183,4 +183,4 @@ function crearFondoKawaii() {
   }
 }
 
-window.addEventListener('load', crearFondoKawaii);
+window.addEventListener('load', crearFondoKawaii); 
