@@ -59,7 +59,7 @@ header {
 
 h1 {
   font-size: 2.2em;
-  color: #ff6f61;
+  color: #FFA500;
   margin-top: 10px;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
   -webkit-text-stroke: 0.8px white;
@@ -109,7 +109,7 @@ button:hover {
 
 /* Botón reiniciar con un color distinto */
 .btn-reiniciar {
-  background-color: #888;
+  background-color: #000;
   margin-left: 20px;
 }
 
@@ -239,4 +239,5 @@ footer {
     padding: 8px 15px;
   }
 }
+
 
